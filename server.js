@@ -3,12 +3,13 @@ const { connectDB } = require("./config/db");
 const userController = require("./controllers/user");
 require("./jobs/birthdayScheduler");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
 connectDB();
 
-const PORT = 1000;
+const PORT = process.env.PORT || 1000;
 app.use(cors());
 app.use(express.json());
 
