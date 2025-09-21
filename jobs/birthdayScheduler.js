@@ -21,7 +21,7 @@ const sendBirthdayEmail = async (user) => {
   });
 };
 
-const checkBirthday = async () => {
+cron.schedule("* * * * *", async () => {
   try {
     const users = await User.find({});
 
@@ -43,12 +43,9 @@ const checkBirthday = async () => {
           });
         }
       }
-      console.log("Job started at:", new Date());
     }
+    console.log("Job started at:", new Date());
   } catch (err) {
     console.log("error checking birthdays", err);
-    process.exit(1);
   }
-};
-
-checkBirthday();
+});
