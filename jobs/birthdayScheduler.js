@@ -43,6 +43,7 @@ const checkBirthday = async () => {
           });
         }
       }
+      console.log("Job started at:", new Date());
     }
   } catch (err) {
     console.log("error checking birthdays", err);
