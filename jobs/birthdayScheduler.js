@@ -21,7 +21,7 @@ const sendBirthdayEmail = async (user) => {
   });
 };
 
-cron.schedule("0 0 15 * * *", async () => {
+const checkBirthday = async () => {
   try {
     const users = await User.find({});
 
@@ -46,5 +46,8 @@ cron.schedule("0 0 15 * * *", async () => {
     }
   } catch (err) {
     console.log("error checking birthdays", err);
+    process.exit(1);
   }
-});
+};
+
+checkBirthday();
