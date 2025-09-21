@@ -21,7 +21,7 @@ const sendBirthdayEmail = async (user) => {
   });
 };
 
-cron.schedule("* * * * *", async () => {
+cron.schedule("0 7 * * *", async () => {
   try {
     const users = await User.find({});
 
