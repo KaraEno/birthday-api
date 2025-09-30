@@ -41,7 +41,7 @@ cron.schedule("0 7 * * *", async () => {
           : null;
         const currentYear = moment().tz(user.timezone).year();
 
-        if (lastYearSent !== currentYear) {
+        if (currentYear > lastYearSent) {
           await sendBirthdayEmail(user);
           try {
             await User.findByIdAndUpdate(user._id, {
